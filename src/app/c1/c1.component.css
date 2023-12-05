@@ -1,0 +1,91 @@
+/* Add your styles here */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  form {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 8px; /* Reduced padding */
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 13px; /* Adjusted margin-top */
+  }
+  
+  label {
+    font-size: 14px; /* Reduced font-size */
+    color: #333;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px; /* Adjusted margin-bottom */
+    box-sizing: border-box;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .checkbox-group label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px; /* Adjusted margin-bottom */
+    color: #8e44ad;
+  }
+  
+  input[type='radio'] {
+    height: 10px;
+    margin: 2px;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    margin-top: 5px;
+    font-size: 12px; /* Reduced font-size */
+  }
+  
+  .radio-group {
+    margin-bottom: 2px; /* Adjusted margin-bottom */
+  }
+  
+  button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px; /* Reduced font-size */
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #95a5a6;
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    background-color: #27ae60;
+  }
+  
+  /* Add media queries for responsiveness */
+  @media (max-width: 600px) {
+    .divprint {
+      right: 0;
+    }
+  }
+  

@@ -1,0 +1,47 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <label for="name">Username</label>
+    <input type="text" id="name" name="username" [(ngModel)]="username" required placeholder="Enter username" />
+    <div *ngIf="f.submitted && f.controls['username'].errors">
+      <div *ngIf="f.controls['username'].errors['required']">
+        Username is required.
+      </div>
+    </div>
+    <label for="email" >Email</label>
+    <input type="email" id="email" name="email" ngModel required email placeholder="Enter email" />
+    <div *ngIf="f.submitted && f.controls['email'].errors">
+      <div *ngIf="f.controls['email'].errors['required']">Email is required.</div>
+      <div *ngIf="f.controls['email'].errors['email']">Email is not valid.</div>
+    </div>
+    <!-- For check languages -->
+    <div *ngFor="let checkbox of checkboxes;index as i">
+      <label >
+        <input type="checkbox" [(ngModel)]="checkbox.isChecked"   name="checkboxLanguages">
+        {{ checkbox.label }}
+      </label>
+    </div>
+<div>
+      <label for="description">Description of project</label><br>
+      <textarea name="description" id="description"  ngModel minlength="10" required placeholder="Description.."></textarea>
+      <div *ngIf="f.submitted && f.controls['description'].errors">
+        <div style="color: red;" *ngIf="f.controls['description'].errors['minlength']">Description should be at least 10 characters long.</div>
+      </div>
+    </div>
+    <!--for select level -->
+    <h5 style="color: blue;">select level :</h5>
+    <div>
+      <input type="radio" name="r1" id="ro1" [(ngModel)]="selectedLevel" value="beginner"><label for="ro1">Beginner</label><br>
+      <input type="radio" name="r1" id="ro2" [(ngModel)]="selectedLevel" value="intermediate"><label for="ro2">Intermediate</label><br>
+      <input type="radio" name="r1" id="ro3" [(ngModel)]="selectedLevel" value="advanced"><label for="ro3">Advanced</label><br>
+    </div>
+    <div *ngIf="!selectedLevel && f.submitted">
+      Please select a level.
+    </div>
+    <button type="submit" [disabled]="!hasCheckedCheckbox() || f.invalid || !selectedLevel" (click)="getMessageForSelectedLevel()">Submit</button>
+  
+    <!-- Display message based on the selected level -->
+  </form>
+  <div style="padding: 4px; margin: 2px; border: 2px solid rgb(187, 185, 185);">
+      {{savemessage}}
+  </div>
+  
+  
